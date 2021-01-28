@@ -1,11 +1,11 @@
 {
-    "name": "assistant_spirit",
-    "short_name": "assistant_spirit",
+    "name": "Assistant Spirit",
+    "short_name": "Assistant Spirit",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Assistant Spirit is your personal customizable assistant developed with the sole purpose of making your lives easy!.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
