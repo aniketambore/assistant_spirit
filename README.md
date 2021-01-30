@@ -155,9 +155,10 @@ The Imagga API is used for image understanding and analysis.
 2. Add appropriate [firebase](https://firebase.google.com) credentials (Android and Web).
 3. Enable _Google Sign-in Method_ from firebase authentication tab.
 4. Add appropriate [dialogflow](https://cloud.google.com/dialogflow) credentials.
-5. Get your [Imagga](https://docs.imagga.com/) Api key.
-6. Run ```flutter run -d web-server --web-port 7357```
-7. Open ```localhost:7357```
+5. Export the dialogflow agent from ```Dialogflow Agent -> Assistant-Spirit.zip``` to your dialogflow console.
+6. Get your [Imagga](https://docs.imagga.com/) Api key.
+7. Run ```flutter run -d web-server --web-port 7357```
+8. Open ```localhost:7357```
 
 
 ## For Timathon Voters/Judges

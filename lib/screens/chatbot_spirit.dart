@@ -1,33 +1,33 @@
-import 'dart:async';
-import 'package:assistant_spirit/networks/image_detecting.dart';
-import 'package:assistant_spirit/screens/about_dev.dart';
-import 'package:assistant_spirit/screens/home_page.dart';
-import 'package:assistant_spirit/widgets/bar_avatar.dart';
-import 'package:assistant_spirit/widgets/calling_action.dart';
-import 'package:assistant_spirit/widgets/create_route.dart';
-import 'package:assistant_spirit/widgets/features.dart';
-import 'package:assistant_spirit/widgets/message_toast.dart';
-import 'package:assistant_spirit/widgets/select_language.dart';
-import 'package:assistant_spirit/widgets/spirit_message.dart';
-import 'package:assistant_spirit/widgets/url_web_view.dart';
-import 'package:emoji_picker/emoji_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_dialogflow/dialogflow_v2.dart';
-import 'package:flutter_dialogflow/v2/auth_google.dart';
-import 'package:flutter_tts/flutter_tts.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences_settings/shared_preferences_settings.dart';
-import 'package:translator/translator.dart';
-import 'package:image/image.dart' as Im;
-import 'package:url_launcher/url_launcher.dart';
-import 'package:uuid/uuid.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-//import 'dart:io';
-import 'package:firebase/firebase.dart' as fb;
-import 'dart:html';
+import "dart:async";
+import "package:assistant_spirit/networks/image_detecting.dart";
+import "package:assistant_spirit/screens/about_dev.dart";
+import "package:assistant_spirit/screens/home_page.dart";
+import "package:assistant_spirit/widgets/bar_avatar.dart";
+import "package:assistant_spirit/widgets/calling_action.dart";
+import "package:assistant_spirit/widgets/create_route.dart";
+import "package:assistant_spirit/widgets/features.dart";
+import "package:assistant_spirit/widgets/message_toast.dart";
+import "package:assistant_spirit/widgets/select_language.dart";
+import "package:assistant_spirit/widgets/spirit_message.dart";
+import "package:assistant_spirit/widgets/url_web_view.dart";
+import "package:emoji_picker/emoji_picker.dart";
+import "package:firebase_storage/firebase_storage.dart";
+import "package:flutter/material.dart";
+import "package:flutter_dialogflow/dialogflow_v2.dart";
+import "package:flutter_dialogflow/v2/auth_google.dart";
+import "package:flutter_tts/flutter_tts.dart";
+import "package:image_picker/image_picker.dart";
+import "package:intl/intl.dart";
+import "package:path_provider/path_provider.dart";
+import "package:shared_preferences_settings/shared_preferences_settings.dart";
+import "package:translator/translator.dart";
+import "package:image/image.dart" as Im;
+import "package:url_launcher/url_launcher.dart";
+import "package:uuid/uuid.dart";
+import "package:firebase_storage/firebase_storage.dart" as firebase_storage;
+//import "dart:io";
+import "package:firebase/firebase.dart" as fb;
+import "dart:html";
 
 class AssistantSpirit extends StatefulWidget {
   @override
@@ -161,7 +161,7 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
         );
       } else {
         messageTextController.clear();
-        enTranslate = (await userQuestion.translate(to: 'en'));
+        enTranslate = (await userQuestion.translate(to: "en"));
         message = SpiritMessage(
             text: userQuestion,
             type: true,
@@ -253,8 +253,8 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
     //6). calling _speak() for text to speech.
 
     String myValue = await Settings().getString(
-      'radiokey',
-      'en',
+      "radiokey",
+      "en",
     );
 
     if (await _flutterTts.isLanguageAvailable(myValue)) {
@@ -585,7 +585,7 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 //  }
 
   uploadImageWeb({@required Function(File file) onSelected}) {
-    InputElement uploadInput = FileUploadInputElement()..accept = 'image/*';
+    InputElement uploadInput = FileUploadInputElement()..accept = "image/*";
     uploadInput.click();
 
     uploadInput.onChange.listen((event) {
@@ -623,25 +623,25 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
   }
 
   String chooseLocation(Map param) {
-    if (param['city'].toString().isNotEmpty)
-      return param['city'].toString();
-    else if (param['island'].toString().isNotEmpty)
-      return param['island'].toString();
-    else if (param['shortcut'].toString().isNotEmpty)
-      return param['shortcut'].toString();
-    else if (param['street-address'].toString().isNotEmpty)
-      return param['street-address'].toString();
-    else if (param['business-name'].toString().isNotEmpty)
-      return param['business-name'].toString();
-    else if (param['subadmin-area'].toString().isNotEmpty)
-      return param['subadmin-area'].toString();
-    else if (param['zip-code'].toString().isNotEmpty)
-      return param['zip-code'].toString();
-    else if (param['country'].toString().isNotEmpty)
-      return param['country'].toString();
-    else if (param['admin-area'].toString().isNotEmpty)
-      return param['admin-area'].toString();
-    return param['city'].toString();
+    if (param["city"].toString().isNotEmpty)
+      return param["city"].toString();
+    else if (param["island"].toString().isNotEmpty)
+      return param["island"].toString();
+    else if (param["shortcut"].toString().isNotEmpty)
+      return param["shortcut"].toString();
+    else if (param["street-address"].toString().isNotEmpty)
+      return param["street-address"].toString();
+    else if (param["business-name"].toString().isNotEmpty)
+      return param["business-name"].toString();
+    else if (param["subadmin-area"].toString().isNotEmpty)
+      return param["subadmin-area"].toString();
+    else if (param["zip-code"].toString().isNotEmpty)
+      return param["zip-code"].toString();
+    else if (param["country"].toString().isNotEmpty)
+      return param["country"].toString();
+    else if (param["admin-area"].toString().isNotEmpty)
+      return param["admin-area"].toString();
+    return param["city"].toString();
   }
 
   Future<bool> handleResponse(AIResponse response) async {
@@ -682,8 +682,8 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //Set Timer Action Intent
       case "timer.set":
-        if (response.queryResult.parameters['seconds'].toString().isNotEmpty) {
-          var sec = "${response.queryResult.parameters['seconds'].toString()}";
+        if (response.queryResult.parameters["seconds"].toString().isNotEmpty) {
+          var sec = "${response.queryResult.parameters["seconds"].toString()}";
 
           var timerUrl = "https://vclock.com/timer/#countdown=00:00:$sec";
           Navigator.push(
@@ -723,9 +723,9 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //Search in dictionary
       case "dictionary.find":
-        if (response.queryResult.parameters['word'].toString().isNotEmpty) {
+        if (response.queryResult.parameters["word"].toString().isNotEmpty) {
           var wordToSearch =
-              "${response.queryResult.parameters['word'].toString()}";
+              "${response.queryResult.parameters["word"].toString()}";
           var dictionaryUrl =
               "https://www.merriam-webster.com/dictionary/$wordToSearch";
           Navigator.push(
@@ -741,14 +741,14 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //Send Email
       case "email.send":
-        if (response.queryResult.parameters['email'].toString().isNotEmpty &&
-            response.queryResult.parameters['text'].toString().isNotEmpty) {
-          var url = 'mailto:' +
-              response.queryResult.parameters['email'] +
-              '?subject=' +
-              response.queryResult.parameters['subject'] +
-              '&body=' +
-              response.queryResult.parameters['text'];
+        if (response.queryResult.parameters["email"].toString().isNotEmpty &&
+            response.queryResult.parameters["text"].toString().isNotEmpty) {
+          var url = "mailto:" +
+              response.queryResult.parameters["email"] +
+              "?subject=" +
+              response.queryResult.parameters["subject"] +
+              "&body=" +
+              response.queryResult.parameters["text"];
 
           if (await canLaunch(url))
             await launch(url);
@@ -760,9 +760,9 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //Generate Lyrics
       case "song.lyrics":
-        if (response.queryResult.parameters['song'].toString().isNotEmpty) {
+        if (response.queryResult.parameters["song"].toString().isNotEmpty) {
           var songToSearch =
-              "${response.queryResult.parameters['song'].toString()}";
+              "${response.queryResult.parameters["song"].toString()}";
 
           var geniusUrl =
               "https://search.azlyrics.com/search.php?q=$songToSearch";
@@ -780,9 +780,9 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //Search location in map
       case "maps.search":
-        if (response.queryResult.parameters['location'].toString().isNotEmpty) {
+        if (response.queryResult.parameters["location"].toString().isNotEmpty) {
           var urlMap =
-              "https://www.google.com/maps/search/${chooseLocation(response.queryResult.parameters['location'])}}";
+              "https://www.google.com/maps/search/${chooseLocation(response.queryResult.parameters["location"])}}";
 
           if (await canLaunch(urlMap))
             await launch(urlMap);
@@ -794,9 +794,9 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //For Navigation
       case "navigation":
-        if (response.queryResult.parameters['location'].toString().isNotEmpty) {
+        if (response.queryResult.parameters["location"].toString().isNotEmpty) {
           var url =
-              "https://www.google.com/maps/search/${chooseLocation(response.queryResult.parameters['location'])}";
+              "https://www.google.com/maps/search/${chooseLocation(response.queryResult.parameters["location"])}";
           if (await canLaunch(url))
             await launch(url);
           else
@@ -807,9 +807,9 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //For News
       case "news.search":
-        if (response.queryResult.parameters['category'].toString().isNotEmpty) {
+        if (response.queryResult.parameters["category"].toString().isNotEmpty) {
           var newsCategory =
-              "${response.queryResult.parameters['category'].toString()}";
+              "${response.queryResult.parameters["category"].toString()}";
           var newsUrl = "https://www.bbc.co.uk/search?q=$newsCategory";
 
           if (await canLaunch(newsUrl))
@@ -822,14 +822,14 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //Send Sms Action Intent
       case "sms":
-        if (response.queryResult.parameters['phone-number']
+        if (response.queryResult.parameters["phone-number"]
                 .toString()
                 .isNotEmpty &&
-            response.queryResult.parameters['text'].toString().isNotEmpty) {
-          var url = 'sms:' +
-              response.queryResult.parameters['phone-number'] +
-              '?body=' +
-              response.queryResult.parameters['text'];
+            response.queryResult.parameters["text"].toString().isNotEmpty) {
+          var url = "sms:" +
+              response.queryResult.parameters["phone-number"] +
+              "?body=" +
+              response.queryResult.parameters["text"];
           if (await canLaunch(url))
             await launch(url);
           else
@@ -840,20 +840,20 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //Crypto Currency Conversion
       case "crypto.convert":
-        if (response.queryResult.parameters['currency-name']
+        if (response.queryResult.parameters["currency-name"]
                 .toString()
                 .isNotEmpty &&
-            response.queryResult.parameters['crypto-name']
+            response.queryResult.parameters["crypto-name"]
                 .toString()
                 .isNotEmpty &&
-            response.queryResult.parameters['number'].toString().isNotEmpty) {
+            response.queryResult.parameters["number"].toString().isNotEmpty) {
           var fiatCurrency =
-              "${response.queryResult.parameters['currency-name'].toString()}";
+              "${response.queryResult.parameters["currency-name"].toString()}";
 
           var cryptoCurrency =
-              "${response.queryResult.parameters['crypto-name'].toString()}";
+              "${response.queryResult.parameters["crypto-name"].toString()}";
 
-          var count = "${response.queryResult.parameters['number'].toString()}";
+          var count = "${response.queryResult.parameters["number"].toString()}";
 
           var cryptoUrl =
               "https://coinmarketcap.com/converter/$cryptoCurrency/$fiatCurrency/?amt=$count";
@@ -908,11 +908,11 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
       //For Free Courses
       case "course.free":
-        if (response.queryResult.parameters['course-name']
+        if (response.queryResult.parameters["course-name"]
             .toString()
             .isNotEmpty) {
           var courseName =
-              "${response.queryResult.parameters['course-name'].toString()}";
+              "${response.queryResult.parameters["course-name"].toString()}";
 
           var freeCourseUrl = "https://www.techwithtim.net/?s=$courseName";
 
