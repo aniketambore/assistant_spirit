@@ -216,8 +216,8 @@ class _FeaturesState extends State<Features> {
         Icon(Icons.pages) // iconPic
         ),
     NewItem(
-        false, // isExpanded ?
-        'Set Alarms', // header
+        false,
+        'Set Alarms',
         Container(
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),
@@ -235,8 +235,8 @@ class _FeaturesState extends State<Features> {
         Icon(Icons.alarm_add) // iconPic
         ),
     NewItem(
-        false, // isExpanded ?
-        'Fetch Alarms', // header
+        false,
+        'Fetch Alarms',
         Container(
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),
@@ -255,8 +255,8 @@ class _FeaturesState extends State<Features> {
         Icon(Icons.alarm_on) // iconPic
         ),
     NewItem(
-        false, // isExpanded ?
-        'Set Timer', // header
+        false,
+        'Set Timer',
         Container(
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),
@@ -275,8 +275,8 @@ class _FeaturesState extends State<Features> {
         Icon(Icons.timer) // iconPic
         ),
     NewItem(
-        false, // isExpanded ?
-        'Search Lyrics', // header
+        false,
+        'Search Lyrics',
         Container(
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),
@@ -295,8 +295,8 @@ class _FeaturesState extends State<Features> {
         Icon(Icons.queue_music) // iconPic
         ),
     NewItem(
-        false, // isExpanded ?
-        'Send Email / Send Sms', // header
+        false,
+        'Send Email / Send Sms',
         Container(
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),
@@ -315,8 +315,8 @@ class _FeaturesState extends State<Features> {
         Icon(Icons.mail) // iconPic
         ),
     NewItem(
-        false, // isExpanded ?
-        'Search On Map', // header
+        false,
+        'Search On Map',
         Container(
           padding: EdgeInsets.all(20),
           margin: EdgeInsets.all(20),
@@ -333,6 +333,26 @@ class _FeaturesState extends State<Features> {
           ),
         ), // body
         Icon(Icons.map) // iconPic
+        ),
+    NewItem(
+        false,
+        'Play Games',
+        Container(
+          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(
+              color: Colors.lightGreenAccent,
+              width: 10,
+            ),
+          ),
+          child: Image(
+            image: AssetImage("assets/features/feature25.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ), // body
+        Icon(Icons.videogame_asset) // iconPic
         ),
     NewItem(
         false,

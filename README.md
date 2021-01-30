@@ -16,7 +16,7 @@
 
 ## Table of Contents
 
-- [Initial Idea](#inital-idea)
+- [Initial Idea](#initial-idea)
 - [About The Project](#about-the-project)
 - [Screens and Features](#screens-and-features-specification)
 - [Resources](#resources)
@@ -95,25 +95,28 @@ Set Alarm                          |  Fetch Alarm                        |  Set 
 ![](assets/features/feature4.jpg)  |  ![](assets/features/feature5.jpg)  |  ![](assets/features/feature6.jpg)
 
 
-Search Lyrics                      |  CryptoCurrency Conversion          |  Navigation
+Change Languages                   |  CryptoCurrency Conversion          |  Dictionary
 :---------------------------------:|:-----------------------------------:|:-------------------------:
-![](assets/features/feature7.jpg)  |  ![](assets/features/feature8.jpg)  |  ![](assets/features/feature9.jpg)
+![](assets/features/feature21.jpg) |  ![](assets/features/feature8.jpg)  |  ![](assets/features/feature11.jpg)
 
 
-News                                |   Dictionary                         |   Send Email/Sms
+News                                |   Instant Navigation                |   Send Email/Sms
+:----------------------------------:|:-----------------------------------:|:-------------------------:
+![](assets/features/feature10.jpg)  |  ![](assets/features/feature9.jpg)  |  ![](assets/features/feature12.jpg)
+
+
+Search Lyrics                      |  Free Online Courses                 |   Maps
+:---------------------------------:|:------------------------------------:|:-------------------------:
+![](assets/features/feature7.jpg)  |  ![](assets/features/feature14.jpg)  |  ![](assets/features/feature15.jpg)
+
+
+Jokes and Quotes                    |  Web Search                          |   Weather
 :----------------------------------:|:------------------------------------:|:-------------------------:
-![](assets/features/feature10.jpg)  |  ![](assets/features/feature11.jpg)  |  ![](assets/features/feature12.jpg)
+![](assets/features/feature17.jpg)  |  ![](assets/features/feature20.jpg)  |  ![](assets/features/feature13.jpg)
 
-
-Weather                             |  Free Online Courses                 |   Maps
-:----------------------------------:|:------------------------------------:|:-------------------------:
-![](assets/features/feature13.jpg)  |  ![](assets/features/feature14.jpg)  |  ![](assets/features/feature15.jpg)
-
-
-Jokes and Quotes                    |  Web Search                          |   Change Languages
-:----------------------------------:|:------------------------------------:|:-------------------------:
-![](assets/features/feature17.jpg)  |  ![](assets/features/feature20.jpg)  |  ![](assets/features/feature21.jpg)
-
+Play Games                  |
+:---------------------------------:|
+![](assets/features/feature25.jpg)  |
 
 ## Live Software Notification
 

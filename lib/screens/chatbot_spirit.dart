@@ -927,6 +927,19 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
           return false;
         break;
 
+      //For Online Games
+      case "play.games":
+        var freeGames = "https://www.cbc.ca/kids/games/all";
+
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => UrlWebView(
+                      url: freeGames,
+                      barName: "Free Games",
+                    )));
+        break;
+
       default:
         return false;
     }
