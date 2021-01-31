@@ -27,8 +27,8 @@ class _CardViewState extends State<CardView> {
 
   @override
   Widget build(BuildContext context) {
-    var text = widget.data[0];
-    var date = widget.data.sublist(2);
+    var text = widget.data[3];
+    var date = widget.data;
 
     return Stack(
       children: [

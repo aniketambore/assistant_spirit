@@ -17,13 +17,7 @@ class EditNote extends StatefulWidget {
 
 class _EditNoteState extends State<EditNote>
     with SingleTickerProviderStateMixin {
-  List<String> data = [
-    "",
-    "0",
-    "",
-    "",
-    "",
-  ];
+  List<String> data = ["", "", "", "", ""];
   bool explodeColoredCircle = false;
   bool showInputSection1 = false;
   bool showInputSection2 = false;
@@ -50,13 +44,13 @@ class _EditNoteState extends State<EditNote>
   void autoAssignData() {
     var now = DateTime.now();
     data = [
-      "",
-      "Colors.purple",
-      "${now.day}".padLeft(2, "0"),
-      "${monthNames[now.month]}",
+      "${now.day}",
+      now.month == 1 ? "JAN" : "${monthNames[now.month - 1]}",
       "${now.year}",
       "",
+      ""
     ];
+    print("${now.day} , ${now.month} , ${now.year}");
   }
 
   void animationGo(BuildContext context) async {
@@ -64,8 +58,8 @@ class _EditNoteState extends State<EditNote>
       autoAssignData();
     } else {
       data = widget.data;
-      _headingController.text = data[0];
-      _bodyController.text = data[5];
+      _headingController.text = data[3];
+      _bodyController.text = data[4];
     }
 
     Timer(Duration(milliseconds: 500), () {
@@ -234,8 +228,8 @@ class _EditNoteState extends State<EditNote>
                 if (widget.autoGen == true) {
                   var journalDataKeys = prefs.getStringList("dataKeys") ?? [];
                   var timeStamp = DateTime.now().toIso8601String();
-                  data[0] = _headingController.text;
-                  data[5] = _bodyController.text;
+                  data[3] = _headingController.text;
+                  data[4] = _bodyController.text;
 
                   journalDataKeys.insert(0, "data_$timeStamp");
                   await prefs.setStringList("dataKeys", journalDataKeys);
@@ -244,8 +238,8 @@ class _EditNoteState extends State<EditNote>
                 } else {
                   var timestamp = prefs.getStringList("dataKeys")[widget.id];
                   data = prefs.getStringList(timestamp);
-                  data[0] = _headingController.text;
-                  data[5] = _bodyController.text;
+                  data[3] = _headingController.text;
+                  data[4] = _bodyController.text;
 
                   await prefs.setStringList(timestamp, data);
                   Navigator.pop(context);
@@ -293,7 +287,7 @@ class _EditNoteState extends State<EditNote>
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Text(
-                data[2],
+                data[0],
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w900,
@@ -303,7 +297,7 @@ class _EditNoteState extends State<EditNote>
               ),
               SizedBox(height: 4),
               Text(
-                data[3],
+                data[1],
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 19,
@@ -312,7 +306,7 @@ class _EditNoteState extends State<EditNote>
                 ),
               ),
               Text(
-                data[4],
+                data[2],
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
