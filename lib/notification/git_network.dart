@@ -3,7 +3,7 @@ import 'package:http/http.dart';
 
 class GitNetwork {
   static const API =
-      "https://api.github.com/repos/username/reopsitory/commits?access_token=";
+      "https://api.github.com/repos/username/repository/commits?access_token=";
   static const outhToken = "access_token";
 
   static Future fetchCommit() async {
