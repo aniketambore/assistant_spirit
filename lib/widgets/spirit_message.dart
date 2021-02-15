@@ -129,9 +129,10 @@ class SpiritMessage extends StatelessWidget {
     if (image != null) {
       return Image.file(image);
     } else if (imageWeb != null) {
-      return Image(
-        image: NetworkImage("$imageWeb"),
-      );
+//      return Image(
+//        image: NetworkImage("$imageWeb"),
+//      );
+      return Image.network("$imageWeb");
     } else {
       return SelectableText(
         text,

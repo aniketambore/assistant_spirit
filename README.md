@@ -155,26 +155,25 @@ The Imagga API is used for image understanding and analysis.
 2. Add appropriate [firebase](https://firebase.google.com) credentials (Android and Web).
 3. Enable _Google Sign-in Method_ from firebase authentication tab.
 4. Add appropriate [dialogflow](https://cloud.google.com/dialogflow) credentials.
-5. Export the dialogflow agent from ```Dialogflow Agent -> Assistant-Spirit.zip``` to your dialogflow console.
+5. Export the dialogflow agent from `Dialogflow Agent -> Assistant-Spirit.zip` to your dialogflow console.
 6. Get your [Imagga](https://docs.imagga.com/) Api key.
-7. Run ```flutter run -d web-server --web-port 7357```
-8. Open ```localhost:7357```
+7. Run `flutter run -d web-server --web-port 7357`
+8. Open `localhost:7357`
 
 
 ## For Timathon Voters/Judges
-
-- I also participated for Timathon Code Jam-2, but my project doesn't performed well at that time.
-But I observed that from the top-10 projects of timathon code jam-2 there is one flutter app submission, tim does not demonstrated that in his video.
-As the project setup for flutter is huge.
-Therefore for Timathon Code Jam-3, I myself as a flutter dev decided to create a Flutter Web App. So that anyone can easily test it on there devices.
 
 - [Working Website](https://assistant-spirit.netlify.app/#/)
 - [Project Code](https://github.com/aniketambore/assistant_spirit)
 
 ## Contributing:
 
-For now onwards, till the voting period of Timathon Code Jam - 3 ends, the pull requests are closed.
-But as the voting period gets end, anyone can feel free to contribute to this amazing project.
+ - Fork it!
+ - Create your feature branch: `git checkout -b my-new-feature`
+ - Commit your changes: `git commit -am 'Add some feature'`
+ - Push to the branch: `git push origin my-new-feature`
+ - Submit a pull request.
+
 
 
 ## Team:

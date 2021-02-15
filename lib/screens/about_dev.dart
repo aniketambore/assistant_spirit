@@ -112,37 +112,11 @@ class _AboutDevState extends State<AboutDev> {
                 width: 30,
               ),
               InkWell(
-                  onTap: () {
-                    launch(
-                        "https://www.linkedin.com/in/aniket-ambore-a43b2a194");
-                  },
-                  child: Image.network(
-                    "https://image.flaticon.com/icons/png/512/174/174857.png",
-                    width: 24,
-                    height: 24,
-                  )),
-              SizedBox(
-                width: 30,
-              ),
-              InkWell(
                 onTap: () {
                   launch("https://aniketambore.itch.io/");
                 },
                 child: Image.network(
                   "https://www.pinclipart.com/picdir/big/398-3984001_itch-io-logo-clipart.png",
-                  width: 24,
-                  height: 24,
-                ),
-              ),
-              SizedBox(
-                width: 30,
-              ),
-              InkWell(
-                onTap: () {
-                  launch("https://twitter.com/AniketAmbore1");
-                },
-                child: Image.network(
-                  "https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c53e.png",
                   width: 24,
                   height: 24,
                 ),
