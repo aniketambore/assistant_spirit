@@ -3,8 +3,8 @@ import 'package:http/http.dart';
 
 class GitNetwork {
   static const API =
-      "https://api.github.com/repos/aniketambore/assistant-spirit-web/commits?access_token=";
-  static const outhToken = "git_access_token_here";
+      "https://api.github.com/repos/username/project-name/commits?access_token=";
+  static const outhToken = "github_accesstoken";
 
   static Future fetchCommit() async {
     Response response = await get(API + "$outhToken");
