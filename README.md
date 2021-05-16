@@ -69,6 +69,7 @@ Also, You can become the human assistant to assist or help some other user.
 - 📝 Spirit can **remember something** by writing it as a note for you.
 - 📩 Spirit can **send sms** to any defined phone number directly from your device.
 - ☁ Spirit can display you today's **weather**.
+- 💉 Sprit can find **Covid-19 Vaccination Center** around you.
 
 
 

@@ -1,5 +1,6 @@
 import "dart:async";
 import "package:assistant_spirit/networks/image_detecting.dart";
+import 'package:assistant_spirit/networks/vaccine_api.dart';
 import "package:assistant_spirit/screens/about_dev.dart";
 import "package:assistant_spirit/screens/home_page.dart";
 import "package:assistant_spirit/widgets/bar_avatar.dart";
@@ -25,6 +26,7 @@ import "package:image/image.dart" as Im;
 import "package:url_launcher/url_launcher.dart";
 import "package:uuid/uuid.dart";
 import "package:firebase_storage/firebase_storage.dart" as firebase_storage;
+
 //import "dart:io";
 import "package:firebase/firebase.dart" as fb;
 import "dart:html";
@@ -42,6 +44,7 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
   String _newVoiceText;
 
   get isPlaying => _ttsState == TtsState.playing;
+
   get isStopped => _ttsState == TtsState.stopped;
 
   List<String> menuOptions = [];
@@ -59,6 +62,8 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
   firebase_storage.StorageReference storageRef = FirebaseStorage.instance.ref();
 
   String _imageWebUrl = "";
+  String _pincode = "";
+  String _vaccineDate = "";
 
   @override
   void initState() {
@@ -236,9 +241,27 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 //          if (!onValue) _sendResponse(aiResponse.getMessage());
 //        });
 
-        _sendResponse(
-            //"${aiResponse.getListMessage()[0]["text"][0].toString()}");
-            "${aiResponse.getMessage()}");
+        if (_pincode != "" && _vaccineDate != "") {
+          List vaccineResult = [];
+          VaccineAPI.getVaccine(_pincode, _vaccineDate).then((value) {
+            if (value == "Brrrrr") {
+              _sendResponse(
+                  "Your provided pincode does not contain any vaccination center.");
+            } else {
+              for (var i = 0; i < value["sessions"].length; i++) {
+                vaccineResult.add(
+                    "Date: ${value["sessions"][i]["date"]} \n Name: ${value["sessions"][i]["name"]} \n Vaccine: ${value["sessions"][i]["vaccine"]} \n Fee Type: ${value["sessions"][i]["fee_type"]} \n Slots: ${value["sessions"][i]["slots"]}");
+                _sendResponse("${vaccineResult[i]}");
+              }
+            }
+          }).catchError((err) {
+            _sendResponse("$err");
+          });
+        } else {
+          _sendResponse(
+              //"${aiResponse.getListMessage()[0]["text"][0].toString()}");
+              "${aiResponse.getMessage()}");
+        }
       }
     }
   }
@@ -275,6 +298,7 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
     //_imageAndroid = null;
     _imageWebUrl = "";
+    _pincode = "";
 
     SpiritMessage message = SpiritMessage(
       text: "$resp",
@@ -646,6 +670,19 @@ class _AssistantSpiritState extends State<AssistantSpirit> {
 
   Future<bool> handleResponse(AIResponse response) async {
     switch (response.queryResult.action) {
+      case "vaccine.info":
+        if (response.queryResult.parameters["pincode"].toString().isNotEmpty &&
+            response.queryResult.parameters["date"].toString().isNotEmpty) {
+          _pincode = "${response.queryResult.parameters["pincode"].toString()}";
+          String vaccineDate =
+              "${response.queryResult.parameters["date"].toString()}";
+          _vaccineDate =
+              "${vaccineDate[8]}${vaccineDate[9]}-${vaccineDate[5]}${vaccineDate[6]}-${vaccineDate[0]}${vaccineDate[1]}${vaccineDate[2]}${vaccineDate[3]}";
+          print("Vaccination Date is $_vaccineDate");
+        } else
+          return false;
+        break;
+
       //Set Alarm Action Intent
       case "alarm.set":
         if (response.queryResult.parameters["time"].toString().isNotEmpty) {
